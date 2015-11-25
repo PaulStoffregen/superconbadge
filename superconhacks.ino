@@ -295,11 +295,11 @@ void updateFft(void)
 {
     if (fft1024_1.available()) {
         for (int i = 0; i < 240; i++) {
-            fft1024_1.output[i] = colorMap(fft1024_1.output[i]);
+            line_buffer[240 - i - 1] = colorMap(fft1024_1.output[i]);
         }
 
-        tft.writeRect(0, count, 240, 1, (uint16_t*) & (fft1024_1.output));
-	tft.setScroll(count++);
+        tft.writeRect(0, count, 240, 1, (uint16_t*) &line_buffer);
+        tft.setScroll(count++);
         count = count % 320;
     }
 }
