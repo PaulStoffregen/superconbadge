@@ -298,9 +298,8 @@ void updateFft(void)
             fft1024_1.output[i] = colorMap(fft1024_1.output[i]);
         }
 
-        //tft.writeRect(0, count, 240, 1, (uint16_t*) & (fft1024_1.output));
-        tft.drawFastHLineFromBuffer(0, count, 240, (uint16_t*) & (fft1024_1.output));
-        tft.setScroll(count++);
+        tft.writeRect(0, count, 240, 1, (uint16_t*) & (fft1024_1.output));
+	tft.setScroll(count++);
         count = count % 320;
     }
 }
